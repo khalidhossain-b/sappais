@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#170d2d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<title>শুভ জন্মদিন, আমার রূহী ❤️</title>
+<style>
+  :root { --pink:#ff6f9f; --rose:#ff3f78; --gold:#ffe7a3; --cream:#fff4f8; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; min-height:100%; }
+  body {
+    min-height:100vh; overflow-x:hidden; color:var(--cream);
+    font-family:"Hind Siliguri","Noto Sans Bengali","SolaimanLipi",sans-serif;
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(255,91,151,.24), transparent 38%),
+      radial-gradient(ellipse at 80% 85%, rgba(144,50,120,.28), transparent 40%),
+      linear-gradient(145deg,#100a25 0%,#30102f 48%,#170d2d 100%);
+    display:flex; align-items:center; justify-content:center; padding:28px 14px;
+  }
+  .stars,.hearts { position:fixed; inset:0; pointer-events:none; overflow:hidden; }
+  .star { position:absolute; width:3px;height:3px;background:#fff7d1;border-radius:50%;opacity:.3;animation:twinkle 3s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100%{opacity:.18;transform:scale(.7)}50%{opacity:1;transform:scale(1.5)} }
+  .heart { position:absolute; bottom:-60px; color:#ff7ca9; opacity:0; animation:floatUp linear infinite; text-shadow:0 0 18px #ff3f7866; }
+  @keyframes floatUp { 0%{transform:translateY(0) rotate(0deg) scale(.7);opacity:0}12%{opacity:.75}85%{opacity:.55}100%{transform:translateY(-115vh) rotate(28deg) scale(1.25);opacity:0} }
+  .wrap { width:min(760px,100%); position:relative; z-index:2; opacity:0; visibility:hidden; transform:translateY(20px) scale(.985); }
+  .wrap.unlocked { visibility:visible; animation:grandReveal 1.5s cubic-bezier(.18,.8,.25,1) forwards; }
+  @keyframes grandReveal { 0%{opacity:0;transform:translateY(22px) scale(.975);filter:blur(8px)} 65%{opacity:1;filter:blur(0)} 100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)} }
+  .countdown-screen { position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:22px;
+    background:radial-gradient(ellipse at 50% 35%,#70224f88,transparent 48%),linear-gradient(145deg,#100a25,#30102f 52%,#170d2d);
+    transition:opacity 1.1s ease,visibility 1.1s ease; }
+  .countdown-screen.done { opacity:0;visibility:hidden;pointer-events:none; }
+  .countdown-box { width:min(520px,100%);text-align:center;padding:clamp(25px,6vw,48px) 18px;border:1px solid #ffd1e455;border-radius:28px;
+    background:linear-gradient(135deg,#ffffff12,#ffffff04);box-shadow:0 25px 80px #05020d77,inset 0 1px #ffffff1c;backdrop-filter:blur(14px); }
+  .countdown-kicker {font:600 11px/1.7 Arial,sans-serif;letter-spacing:2.5px;color:#ffd6e5;}
+  .countdown-date {display:none;}
+  .countdown-title {font-size:clamp(24px,6vw,36px);line-height:1.55;color:#fff3f8;margin:8px 0;}
+  .countdown-number {font:700 clamp(58px,15vw,92px)/1.1 Arial,sans-serif;letter-spacing:2px;color:#ffb4d0;
+    text-shadow:0 0 20px #ff4f91aa,0 0 55px #ff4f9155;margin:20px 0;animation:numberPulse 1s ease-in-out infinite;}
+  @keyframes numberPulse {0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.045);filter:brightness(1.25)}}
+  .countdown-caption {font-size:16px;line-height:1.9;color:#ffe8f0;}
+  .countdown-heart {font-size:28px;display:inline-block;animation:heartbeat 1.5s ease-in-out infinite;margin-top:10px;}
+  .countdown-progress {height:3px;max-width:300px;margin:23px auto 0;border-radius:99px;background:#ffffff18;overflow:hidden;}
+  .countdown-progress span {display:block;height:100%;width:0;background:linear-gradient(90deg,#ff6f9f,#ffe7a3);box-shadow:0 0 12px #ff8eb7;transition:width .5s linear;}
+  .card {
+    position:relative; padding:clamp(26px,5vw,52px) clamp(18px,5vw,52px);
+    border:1px solid rgba(255,206,225,.35); border-radius:30px;
+    background:linear-gradient(135deg,rgba(255,255,255,.105),rgba(255,255,255,.035));
+    box-shadow:0 25px 90px #05020d88, inset 0 1px 0 #ffffff22;
+    backdrop-filter:blur(12px); text-align:center; overflow:hidden;
+    animation:appear 1.2s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes appear { from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)} }
+  .glow { position:absolute; width:260px;height:260px;border-radius:50%;filter:blur(60px);background:#ff3f7840;top:-140px;left:calc(50% - 130px);pointer-events:none; }
+  .topline { color:#ffd8e6; letter-spacing:3px; font:600 11px/1.6 Arial,sans-serif; text-transform:uppercase; }
+  .date-card { width:max-content;max-width:100%;margin:19px auto 4px;padding:10px 20px;border-radius:16px;
+    border:1px solid #ffd3e788;background:linear-gradient(120deg,#ff8ab31c,#ffe8b31c,#ff8ab31c);
+    box-shadow:0 0 25px #ff6f9f20,inset 0 1px #ffffff20; color:#ffe6ef;
+    font:600 13px/1.5 Arial,sans-serif;letter-spacing:2px;position:relative;overflow:hidden;
+    animation:dateFloat 3.8s ease-in-out infinite; }
+  .date-card:before { content:"";position:absolute;top:-60%;left:-70%;width:45%;height:220%;
+    background:linear-gradient(90deg,transparent,#ffffff33,transparent);transform:rotate(22deg);
+    animation:dateShine 4.5s ease-in-out infinite; }
+  @keyframes dateFloat { 0%,100%{transform:translateY(0);box-shadow:0 0 18px #ff6f9f20}50%{transform:translateY(-4px);box-shadow:0 0 32px #ff6f9f45} }
+  @keyframes dateShine { 0%,30%{left:-70%}70%,100%{left:140%} }
+  .halo { width:98px;height:98px; margin:20px auto 18px; display:grid;place-items:center;position:relative; }
+  .halo:before,.halo:after { content:"";position:absolute;inset:0;border:1px solid #ffb2ce88;border-radius:50%;animation:pulse 2.8s ease-out infinite; }
+  .halo:after { animation-delay:1.4s; }
+  @keyframes pulse { 0%{transform:scale(.75);opacity:.8}100%{transform:scale(1.65);opacity:0} }
+  .bigheart { font-size:54px; filter:drop-shadow(0 0 22px #ff4e8b99); animation:heartbeat 1.5s ease-in-out infinite; }
+  h1 { letter-spacing:.2px; }
+  .name { font-weight:700; text-shadow:0 0 22px #ff83b477; animation:nameGlow 3.4s ease-in-out infinite; }
+  @keyframes nameGlow { 0%,100%{text-shadow:0 0 12px #ff83b433}50%{text-shadow:0 0 27px #ff83b4aa,0 0 42px #ff83b433} }
+  .message p.reveal { animation:lineReveal 1.15s cubic-bezier(.18,.8,.25,1) forwards, messageBreath 4.5s ease-in-out 1.2s infinite; }
+  @keyframes messageBreath { 0%,100%{text-shadow:0 0 0 #ff80b300}50%{text-shadow:0 0 13px #ff80b322} }
+  @keyframes heartbeat { 0%,100%{transform:scale(1)}14%{transform:scale(1.14)}28%{transform:scale(1)}42%{transform:scale(1.1)}56%{transform:scale(1)} }
+  h1 { font-size:clamp(28px,6vw,47px); line-height:1.4; margin:8px 0 6px; font-weight:800; color:#fff5f8; text-shadow:0 0 25px #ff78a766; }
+  .name { display:block; color:#ffb1cd; font-size:clamp(25px,5vw,38px); margin-top:5px; }
+  .divider { display:flex;align-items:center;gap:12px;justify-content:center;margin:24px auto;color:#ffd5e4; }
+  .divider:before,.divider:after { content:"";height:1px;width:68px;background:linear-gradient(90deg,transparent,#ffabc8); }
+  .divider:after { transform:scaleX(-1); }
+  .message { max-width:590px;margin:0 auto;font-size:clamp(16px,2.5vw,20px);line-height:2.05;color:#fff0f5; }
+  .message p { margin:0 0 17px; opacity:0; transform:translateY(28px) scale(.97); filter:blur(7px); }
+  .message p.reveal { animation:lineReveal 1.15s cubic-bezier(.18,.8,.25,1) forwards; }
+  .message p:nth-child(1){animation-delay:.12s}.message p:nth-child(2){animation-delay:.28s}.message p:nth-child(3){animation-delay:.44s}.message p:nth-child(4){animation-delay:.6s}
+  @keyframes lineReveal { 0%{opacity:0;transform:translateY(28px) scale(.97);filter:blur(7px);text-shadow:0 0 0 transparent} 65%{opacity:1;filter:blur(0);text-shadow:0 0 22px #ff80b366} 100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0);text-shadow:0 0 10px #ff80b322} }
+  .message p .line { display:inline-block; }
+  .message p.reveal .line { animation:wordGlow .85s ease-out both; }
+  @keyframes wordGlow { 0%{opacity:.25;letter-spacing:0} 100%{opacity:1;letter-spacing:normal} }
+  .gold { color:var(--gold); }
+  .wish { margin:28px 0 0; padding:18px 14px; border-radius:18px; background:#ffb5d00d;border:1px solid #ffb5d033; color:#ffe4ed;line-height:1.9;font-size:16px; }
+  .wish strong { color:#ffdca1; }
+  .signature { margin-top:24px;font-size:15px;color:#ffc0d6; }
+  .signature span { display:block;font-size:22px;margin-top:7px;color:white; }
+  .btnrow { display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px; }
+  button { border:1px solid #ffc5da88;border-radius:999px;padding:12px 18px;color:#fff;background:#ff4e8b26;font:600 14px inherit;cursor:pointer;transition:.25s; }
+  button:hover { transform:translateY(-2px);background:#ff4e8b45;box-shadow:0 8px 24px #ff4e8b25; }
+  .surprise { display:none;margin:22px auto 0;max-width:560px;padding:20px;border-radius:18px;background:#190b26a8;border:1px solid #ffd49a66;line-height:1.9;color:#fff4d8;animation:appear .6s ease both; }
+  .surprise.show { display:block; }
+  .date { margin-top:10px;color:#ffe0eb;font:600 13px/1.6 Arial,sans-serif;letter-spacing:2px;text-shadow:0 0 15px #ff83ad88; }
+  .footer { text-align:center;margin:18px 0 0;color:#dcb6c8;font:12px Arial,sans-serif;letter-spacing:1px; }
+  @media (max-width:480px) {
+    body { padding:14px 10px; }
+    .card { padding:25px 17px 23px; border-radius:23px; }
+    .topline { letter-spacing:1.5px;font-size:10px; }
+    .date-card { font-size:11px;letter-spacing:1.5px;padding:9px 14px; }
+    .halo { width:78px;height:78px;margin:18px auto 14px; }
+    .bigheart { font-size:45px; }
+    .divider { margin:19px auto; }
+    .message { font-size:16px;line-height:1.95; }
+    .message p { margin-bottom:19px; }
+    .wish { font-size:15px;padding:16px 12px; }
+    .btnrow { gap:8px; }
+    button { width:100%;padding:13px 15px; }
+  }
+  .petal { position:fixed;top:-30px;pointer-events:none;animation:fall linear forwards;z-index:3; }
+  @keyframes fall { to{transform:translateY(110vh) rotate(600deg);opacity:.1} }
+  @media (prefers-reduced-motion:reduce) { *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important} }
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div><div class="hearts" id="hearts"></div>
+<section class="countdown-screen" id="countdownScreen" aria-live="polite">
+  <div class="countdown-box">
+    <div class="countdown-kicker">A LITTLE SURPRISE FOR YOU</div>
+    <div class="countdown-title">একটু অপেক্ষা করো</div>
+    <div class="countdown-number" id="countdownNumber">--:--:--</div>
+    <div class="countdown-caption" id="countdownCaption"></div>
+    <div class="countdown-progress"><span id="countdownProgress"></span></div>
+    <div class="countdown-heart">♡</div>
+  </div>
+</section>
+<main class="wrap" id="mainContent">
+  <section class="card">
+    <div class="glow"></div>
+    <div class="topline">A little love letter from your husband</div>
+    <div class="date-card">✦ &nbsp; 15 OCTOBER 2026 &nbsp; ✦</div>
+    <div class="halo"><div class="bigheart">❤️</div></div>
+    <h1>শুভ জন্মদিন <span class="name">আমার রূহী<br>আরিফা জাহান</span></h1>
+    <div class="divider">✧ ♡ ✧</div>
+    <div class="message">
+      <p>আল্লাহর কাছে অনেক অনেক শুকরিয়া—<br><span class="gold">আলহামদুলিল্লাহ</span><br>তোমাকে আমার <span class="gold">জীবনসঙ্গিনী</span> হিসেবে পাওয়ার জন্য।</p>
+      <p>আমি শুকরিয়া আদায় করি, কারণ জীবনসঙ্গিনী হিসেবে আমি যেমনটা চেয়েছিলাম, <span class="gold">আল্লাহ তোমাকে ঠিক তেমন করেই সৃষ্টি করেছেন।</span></p>
+      <p>আজকের এই দিনে আল্লাহ তোমার রূহকে দুনিয়ার জমিনে পাঠিয়েছিলেন—আর আমার জীবনে তুমি হয়ে উঠেছ এক অমূল্য নেয়ামত।</p>
+      <p>ইহকাল ও পরকাল—<span class="gold">সবসময় তোমাকেই আমার সঙ্গী হিসেবে চাই।</span> ❤️</p>
+    </div>
+    <div class="wish">আল্লাহ তোমার জীবনকে রহমত, বরকত, সুস্থতা ও অফুরন্ত আনন্দে ভরে দিন।<br>তোমার প্রতিটি স্বপ্ন সুন্দরভাবে পূরণ হোক, আর আমাদের ভালোবাসা আল্লাহর সন্তুষ্টির পথে আরও গভীর হোক। <strong>আমিন। 🤲</strong></div>
+    <div class="signature">চিরদিন তোমারই…<span>তোমার জীবনসঙ্গী ❤️</span></div>
+    <div class="btnrow">
+      <button id="surpriseBtn" type="button">সারপ্রাইজ</button>
+      <button id="petalBtn" type="button" aria-label="গোলাপ">🌹</button>
+    </div>
+    <div class="surprise" id="surprise">তুমি শুধু আমার স্ত্রী নও—তুমি আমার দোয়ার সুন্দর উত্তর, আমার শান্তি, আমার ঘর। আল্লাহ যেন জান্নাতেও তোমার হাতটি আমার হাতে রাখেন। <br><strong>ভালোবাসি তোমাকে, আমার রূহী। ❤️</strong></div>
+  </section>
+  <div class="footer">MADE WITH LOVE • FOR MY ROOHI ❤️</div>
+</main>
+<script>
+  const stars = document.getElementById('stars');
+  for(let i=0;i<65;i++){
+    const s=document.createElement('i');s.className='star';
+    s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=(Math.random()*4)+'s';s.style.animationDuration=(2+Math.random()*4)+'s';
+    stars.appendChild(s);
+  }
+  const hearts=document.getElementById('hearts');
+  const symbols=['♥','♡','❤','✧'];
+  for(let i=0;i<22;i++){
+    const h=document.createElement('span');h.className='heart';h.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    h.style.left=Math.random()*100+'%';h.style.fontSize=(14+Math.random()*24)+'px';
+    h.style.animationDuration=(9+Math.random()*13)+'s';h.style.animationDelay=(-Math.random()*18)+'s';
+    hearts.appendChild(h);
+  }
+  // Unlock the love letter at midnight in Bangladesh (UTC+06:00).
+  const targetTime = new Date('2026-10-15T00:00:00+06:00').getTime();
+  const countdownScreen = document.getElementById('countdownScreen');
+  const countdownNumber = document.getElementById('countdownNumber');
+  const countdownCaption = document.getElementById('countdownCaption');
+  const countdownProgress = document.getElementById('countdownProgress');
+  const mainContent = document.getElementById('mainContent');
+  let countdownTimer = null;
+  function revealBirthdayPage() {
+    if (countdownTimer) clearInterval(countdownTimer);
+    countdownScreen.classList.add('done');
+    mainContent.classList.add('unlocked');
+    document.querySelectorAll('.message p').forEach((paragraph, index)=>{
+      setTimeout(()=>paragraph.classList.add('reveal'), 900 + index * 1350);
+    });
+  }
+  function updateCountdown() {
+    const now = Date.now();
+    const remaining = targetTime - now;
+    if (remaining <= 0) {
+      countdownNumber.textContent = '00:00:00';
+      countdownCaption.textContent = '';
+      countdownProgress.style.width = '100%';
+      revealBirthdayPage();
+      return;
+    }
+    const totalSeconds = Math.floor(remaining / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    countdownNumber.textContent = days > 0
+      ? `${days}d ${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`
+      : `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+    // Progress shows the final hour filling up; before that it remains subtle.
+    const finalHourStart = targetTime - 3600000;
+    const progress = now >= finalHourStart ? ((now-finalHourStart)/3600000)*100 : Math.min(12, (now/(targetTime))*12);
+    countdownProgress.style.width = `${Math.max(0,Math.min(100,progress))}%`;
+  }
+  updateCountdown();
+  if (Date.now() < targetTime) countdownTimer = setInterval(updateCountdown, 1000);
+  document.getElementById('surpriseBtn').addEventListener('click',()=>{
+    const box=document.getElementById('surprise');box.classList.toggle('show');
+  });
+  document.getElementById('petalBtn').addEventListener('click',()=>{
+    for(let i=0;i<38;i++){
+      const p=document.createElement('span');p.className='petal';p.textContent=Math.random()>.45?'🌹':'🌸';
+      p.style.left=Math.random()*100+'vw';p.style.fontSize=(16+Math.random()*18)+'px';
+      p.style.animationDuration=(3+Math.random()*4)+'s';p.style.animationDelay=(Math.random()*1.5)+'s';
+      document.body.appendChild(p);setTimeout(()=>p.remove(),8500);
+    }
+  });
+</script>
+</body>
+</html>
